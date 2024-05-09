@@ -1,0 +1,13 @@
+<div *ngIf="comicsData">
+    <div class="container">
+      <div *ngFor="let comic of comicsData.data.results" class="box1">
+        <img [src]="getThumbnailUrl(comic.thumbnail)" [style.width.px]="comicImageWidth" [style.height.px]="comicImageHeight">
+        <div class="box2">
+          <h2>{{ comic.title }}</h2>
+          <p>Comic ID: {{ comic.id }}</p>
+          <p>Page Count: {{ comic.pageCount }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
