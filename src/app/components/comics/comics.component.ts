@@ -1,13 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { MarvelApiService } from '../../services/marvel-api.service';
-import { IComic,NewComic } from '../../interfaces/marvel';
+import { IComic,NewComic } from '../../interfaces/comics';
+import { RouterLink } from '@angular/router';
 
 
 @Component({
   selector: 'app-comics',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,RouterLink],
   templateUrl: './comics.component.html',
   styleUrl: './comics.component.css'
 })

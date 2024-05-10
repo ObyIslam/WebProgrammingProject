@@ -1,0 +1,18 @@
+
+<div class="title">
+    <h1>Marvel Characters</h1>
+</div>
+
+
+    <div *ngIf="characterData">
+      <div class="container">
+        <div *ngFor="let character of characterData.data.results" class="box1">
+          <img [src]="getThumbnailUrl(character.thumbnail)" [style.width.px]="characterImageWidth"
+            [style.height.px]="characterImageHeight">
+          <div class="box2">
+            <h3>{{ character.name }}</h3>
+            <p>Comic ID: {{ character.id }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
