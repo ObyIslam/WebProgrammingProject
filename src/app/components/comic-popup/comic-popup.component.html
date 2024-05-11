@@ -1,0 +1,13 @@
+<div *ngIf="comic" class="comic-popup">
+    <button type="button" class="btn-close" aria-label="Close" (click)="closePopup()"></button>
+    <button id="btn1" type="button" class="btn btn-success" (click)="saveComic()">Save</button>
+    <h2>{{ comic.title }}</h2>
+    <img [src]="getThumbnailUrl(comic.thumbnail)" alt="{{ comic.title }}" [style.width.px]="comicImageWidth" [style.height.px]="comicImageHeight">
+    <p><strong>Comic ID:</strong> {{ comic.id }}</p>
+    <p><strong>Page Count:</strong> {{ comic.pageCount }}</p>
+    <p><strong>Date Issued:</strong> {{comic.modified}}</p>
+    <p><strong>Creator:</strong></p>
+    <ul>
+        <li *ngFor="let creator of comic.creators?.items">{{ creator.name }}</li>
+    </ul>
+</div>

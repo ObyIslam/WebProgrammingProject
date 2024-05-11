@@ -3,6 +3,13 @@ export interface IComic {
     title: string;
     thumbnail: { path: string; extension: string };
     pageCount: number;
+    modified :string;
+    creators?: {
+        items: {
+            name: string;
+        }[];
+    };
+    
 }
 
 export class NewComic implements IComic {
@@ -10,11 +17,18 @@ export class NewComic implements IComic {
     title: string;
     thumbnail: { path: string; extension: string };
     pageCount: number;
+    modified: string;
+    // creators: {
+    //     items: {
+    //         name: string;
+    //     }[];
+    // };
 
-    constructor(data: IComic) {
-        this.id = data.id;
-        this.title = data.title;
-        this.thumbnail = data.thumbnail;
-        this.pageCount = data.pageCount;
+    constructor(id:number,title:string,thumbnail:{ path: string; extension: string },pageCount:number,modified:string) {
+        this.id = id;
+        this.title = title;
+        this.thumbnail = thumbnail;
+        this.pageCount = pageCount;
+        this.modified = modified;
     }
 }

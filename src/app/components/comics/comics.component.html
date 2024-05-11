@@ -1,18 +1,20 @@
 <div class="title">
   <h1>Marvel Comics</h1>
 </div>
-
-
-  <div *ngIf="comicsData">
-    <div class="container">
-      <div *ngFor="let comic of comicsData.data.results" class="box1">
-        <img [src]="getThumbnailUrl(comic.thumbnail)" [style.width.px]="comicImageWidth"
-          [style.height.px]="comicImageHeight">
-        <div class="box2">
-          <h3>{{ comic.title }}</h3>
-          <p>Comic ID: {{ comic.id }}</p>
-          <p>Page Count: {{ comic.pageCount }}</p>
-        </div>
+<div [class.popup-container]="isPopupVisible" *ngIf="isPopupVisible">
+  <app-comic-popup [comic]="selectedComic" *ngIf="selectedComic" (closePopupEvent)="closePopupHandler()"></app-comic-popup>
+</div>
+<div *ngIf="comicsData">
+  <div class="container">
+    <div *ngFor="let comic of comicsData.data.results" class="box1" (click)="showComicDetails(comic)">
+      <img [src]="getThumbnailUrl(comic.thumbnail)" [style.width.px]="comicImageWidth" [style.height.px]="comicImageHeight">
+      <div class="box2">
+        <h3>{{ comic.title }}</h3>
+        <p>Comic ID: {{ comic.id }}</p>
+        <p>Page Count: {{ comic.pageCount }}</p>
       </div>
     </div>
   </div>
+</div>
+
+
