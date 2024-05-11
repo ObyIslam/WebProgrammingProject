@@ -9,9 +9,9 @@ export class NewCharcter implements ICharacter {
     name: string;
     thumbnail: { path: string; extension: string };
 
-    constructor(data: ICharacter) {
-        this.id = data.id;
-        this.name = data.name;
-        this.thumbnail = data.thumbnail;
+    constructor(id:number,name:string,thumbnail:{ path: string; extension: string }) {
+        this.id = id;
+        this.name = name;
+        this.thumbnail = thumbnail;
     }
 }

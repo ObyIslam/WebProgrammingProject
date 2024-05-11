@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient,HttpErrorResponse } from '@angular/common/http';
 import { Observable,catchError,tap } from 'rxjs';
 import { IComic } from '../interfaces/comics';
+import { ICharacter } from '../interfaces/character';
 
 
 @Injectable({
@@ -42,6 +43,10 @@ export class MarvelApiService {
   }
 
   saveComicDetails(comic: IComic): Observable<any> {
+    return this._http.post<any>(this._siteURL3, comic);
+  }
+
+  saveCharacterDetails(comic: ICharacter): Observable<any> {
     return this._http.post<any>(this._siteURL3, comic);
   }
 

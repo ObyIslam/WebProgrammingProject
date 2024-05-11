@@ -1,0 +1,9 @@
+<div *ngIf="character" class="character-popup">
+    <button type="button" class="btn-close" aria-label="Close" (click)="closePopup()"></button>
+    <button id="btn1" type="button" class="btn btn-success" (click)="saveCharacter()">Save</button>
+    <h2>{{ character.name }}</h2>
+    <img [src]="getThumbnailUrl(character.thumbnail)" [style.width.px]="characterImageWidth"
+        [style.height.px]="characterImageHeight">
+    <p><strong>character ID:</strong> {{ character.id }}</p>
+    <p><strong>Name:</strong> {{ character.name }}</p>
+</div>
